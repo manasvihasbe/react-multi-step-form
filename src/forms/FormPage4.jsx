@@ -23,10 +23,10 @@ function FormPage4() {
   const handleAddClick = () => {
     setInputList([...inputList, { addressLineOne: "", addressLineTwo: "", addressLineThree: "" }]);
   };
-
+  console.log(inputList, 'address')
   return (
-    <div className="FormPage4" style={{marginLeft:'45%',marginTop:'5%'}}>
-    
+    <div className="FormPage4" style={{ marginLeft: '45%', marginTop: '5%' }}>
+
       {inputList.map((x, i) => {
         return (
           <div className="box">
@@ -62,8 +62,26 @@ function FormPage4() {
         );
       })}
       <div style={{ marginTop: 20 }}>
+        <table style={{ border: '1px solid black' }}>
+          <thead >
+            <tr style={{ border: '1px solid black' }}>
+              <th style={{ border: '1px solid black' }}>Address one</th>
+              <th style={{ border: '1px solid black' }}>Address two </th>
+              <th style={{ border: '1px solid black' }}>Address three</th>
+            </tr>
+          </thead>
+          <tbody>
+            {inputList.map((x, i) => {
+              // { JSON.stringify(inputList) }
+              return (<tr>
+                <td style={{ border: '1px solid black' }}>{x.addressLineOne}</td>
+                <td style={{ border: '1px solid black' }}>{x.addressLineTwo}</td>
+                <td style={{ border: '1px solid black' }}>{x.addressLineThree}</td>
+              </tr>)
+            })}
+          </tbody>
+        </table>
 
-        {JSON.stringify(inputList)} 
 
       </div>
 
@@ -72,3 +90,4 @@ function FormPage4() {
 }
 
 export default FormPage4;
+
